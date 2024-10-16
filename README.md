@@ -1,6 +1,6 @@
 <h1 align=center> Eth Relayer </h1>
 
-Eth Relayer is an important character of Poly cross-chain interactive protocol which is responsible for relaying cross-chain transaction from and to Ethereum.
+Eth Relayer is an important character of the Poly cross-chain interactive protocol. It is responsible for relaying cross-chain transactions from and to Ethereum.
 
 ## Build From Source
 
@@ -24,13 +24,13 @@ After building the source code successfully,  you should see the executable prog
 docker build -t polynetwork/eth_relayer -f Dockerfile ./
 ```
 
-This command will copy ./config.json to /app/config.json in the image. So you need to prepare config.json before running this command and you should start the eth-relayer in container basing on the configuration in /app/config.json.
+This command will copy ./config.json to /app/config.json in the image. So, you need to prepare config.json before running this command, and you should start the eth-relayer in the container based on the configuration in /app/config.json.
 
 ## Run Relayer
 
-Before you can run the relayer you will need to create a wallet file of PolyNetwork. After creation, you need to register it as a Relayer to Poly net and get consensus nodes approving your registeration. And then you can send transaction to Poly net and start relaying.
+Before you can run the relayer you will need to create a wallet file of PolyNetwork. After creation, you need to register it as a Relayer to Polynet and get consensus nodes approving your registration. Then you can send a transaction to Polynet and start relaying.
 
-Before running, you need feed the configuration file `config.json`.
+Before running, you need to feed the configuration file `config.json`.
 
 ```
 {
@@ -50,8 +50,8 @@ Before running, you need feed the configuration file `config.json`.
       "0xd12e...54ccacf91ca364d": "pwd1", // password for address "0xd12e...54ccacf91ca364d"
       "0xabb4...0aba7cf3ee3b953": "pwd2" // password for address "0xabb4...0aba7cf3ee3b953"
     },
-    "BlockConfig": 12, // blocks to confirm a ethereum tx
-    "HeadersPerBatch": 500, // number of poly headers commited to ECCM in one transaction at most
+    "BlockConfig": 12, // blocks to confirm an ethereum tx
+    "HeadersPerBatch": 500, // number of poly headers committed to ECCM in one transaction at most
     "MonitorInterval": 3 // seconds of ticker to monitor eth chain
   },
   "BoltDbPath": "./db", // DB path
@@ -67,9 +67,9 @@ Before running, you need feed the configuration file `config.json`.
 }
 ```
 
-After that, make sure you already have a ethereum wallet with ETH. The wallet file is like `UTC--2020-08-17T03-44-00.191825735Z--0xd12e...54ccacf91ca364d` and you can use [geth](https://github.com/ethereum/go-ethereum) to create one( `./geth accounts add` ). Put it under `KeyStorePath`. You can create more than one wallet for relayer. Relayer will send transactions concurrently by different accounts.
+After that, make sure you already have an ethereum wallet with ETH. The wallet file is like `UTC--2020-08-17T03-44-00.191825735Z--0xd12e...54ccacf91ca364d` and you can use [geth](https://github.com/ethereum/go-ethereum) to create one( `./geth accounts add` ). Put it under `KeyStorePath`. You can create more than one wallet for relayer. Relayer will send transactions concurrently by different accounts.
 
-Now, you can start relayer as follow: 
+Now, you can start relayer as follows: 
 
 ```shell
 ./eth_relayer --cliconfig=./config.json 
